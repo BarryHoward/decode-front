@@ -1,2 +1,48 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+.container, .root-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; }
+
+.home {
+  background: #0078D7;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.closecall-home-banner {
+  padding-top: 134px;
+  height: 72px;
+  width: 100%;
+  color: #7EBBEB;
+  font-family: "Helvetica Neue";
+  font-size: 60px;
+  line-height: 74px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0px; }
+  .closecall-home-banner #close {
+    margin: auto 0px; }
+  .closecall-home-banner #call {
+    margin: auto 0px;
+    color: white; }
+
+.helping-neighbors-in {
+  height: 23px;
+  color: #7EBBEB;
+  font-family: ".SF NS Text";
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 23px;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
