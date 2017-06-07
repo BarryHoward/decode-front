@@ -1,7 +1,7 @@
 function RegisterController ($state, $rootScope, $http) {
   let vm = this;
 
-  const ENDPOINT = ""
+  const ENDPOINT = "https://closecall-api.azurewebsites.net/api/profile"
 
   const SITUATION_MAP = {
     med_sit: "Medical Situation",
@@ -51,14 +51,34 @@ function RegisterController ($state, $rootScope, $http) {
                 phone: vm.phone,
                 situations: vm.situations,
                 skills: vm.skills,
-                photo: ""
+                photo: "",
+                allowPush: true,
+                shareLocation: true
             }
+
+    // user = {
+    //     name:"Barry Howard",
+    //     email:"barry.howard@ge.com",
+    //     phone:"770-519-2683",
+    //     allowPush: true,
+    //     shareLocation: true,
+    //     situations:[
+    //         "Medical Situations",
+    //         "Mechanical Situations"
+    //     ],
+    //     skills:[
+    //         "CPR",
+    //         "Doctor",
+    //         "Combat Medic"
+    //     ]
+    // }
 
     let req = {
       url: `${ENDPOINT}`,
       data: user,
       method: 'POST',
-      //headers: 
+      headers: { 'x-functions-key': "DfhpTaxIpcQI4poARx0YNwEUC7SPcOKzL3TgffTFtnkDfDNPF6/66Q==",
+                  'Content-Type': 'application/json'} 
     }
     console.log(user)
     $http(req).then(function (resp){

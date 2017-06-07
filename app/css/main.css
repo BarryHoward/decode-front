@@ -33,6 +33,22 @@ input {
   align-items: center;
   justify-content: space-between;
   flex-direction: column; }
+  .home .bottom-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: transparent; }
+  .home .sign-in-button {
+    margin: 30px;
+    color: white;
+    background: transparent;
+    border: none; }
+  .home .go-to-help-button {
+    margin: 30px;
+    color: white;
+    background: transparent;
+    border: none; }
 
 .home-title {
   padding-top: 134px;
@@ -62,13 +78,6 @@ input {
   font-family: ".SF NS Text";
   font-size: 10px;
   font-weight: bold; }
-
-.sign-in-button {
-  margin: 30px;
-  align-self: flex-end;
-  color: white;
-  background: transparent;
-  border: none; }
 
 .register {
   width: 100%;
@@ -151,6 +160,39 @@ input {
         outline: 2px solid #000000;
         margin-right: 20px;
         border: none; }
+
+.help {
+  width: 100%;
+  height: 100%;
+  background: #EFA751;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 170px;
+  justify-content: space-between;
+  align-items: center; }
+  .help #close {
+    color: #FBE0BF;
+    margin: auto 0px; }
+  .help .help-button {
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    background: #F2B870;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .help .help-button .help-button-text {
+      height: 64px;
+      width: 223px;
+      color: #FFFFFF;
+      font-family: "Helvetica Neue";
+      font-size: 30px;
+      line-height: 32px;
+      text-align: center; }
 
 #switch {
   position: relative;

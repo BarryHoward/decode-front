@@ -38323,15 +38323,52 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":4}],6:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-function HelpController($state, $rootScope) {
+function HelpController($state, $rootScope, $http) {
   var vm = this;
+  vm.call_help = call_help;
+
+  var LUIS_ENDPOINT = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/db6dc131-3164-4086-8d2a-5fc41b25bb31?subscription-key=411d55671bf84e8c81ea1e762ca2e9a3&timezoneOffset=0&verbose=true&spellCheck=true&q=I%20fell%20dwn%20and%20kant%20get%20up";
+
+  var SERVER_ENDPOINT = "";
+  var text = "I cut myself, and I'm bleeding";
+
+  var audio = "I've fallen and I can't get up";
+
+  function call_help() {
+    var data = [text];
+
+    var req = {
+      url: "" + LUIS_ENDPOINT
+    };
+
+    $http(req).then(function (resp) {
+
+      console.log(resp.data.intents);
+      var new_req = {
+        url: "" + SERVER_ENDPOINT,
+        data: resp.data.intents,
+        method: 'POST',
+        headers: { 'x-functions-key': "DfhpTaxIpcQI4poARx0YNwEUC7SPcOKzL3TgffTFtnkDfDNPF6/66Q==",
+          'Content-Type': 'application/json' }
+      };
+
+      $http(new_req).then(function (new_resp) {
+        console.log(new_resp);
+      }, function (new_reject) {
+        console.log(new_reject);
+      });
+      $state.go("home");
+    }, function (reject) {
+      console.log(reject);
+    });
+  }
 }
-HelpController.$inject = ['$state', '$rootScope'];
+HelpController.$inject = ['$state', '$rootScope', '$http'];
 exports.HelpController = HelpController;
 
 },{}],7:[function(require,module,exports){
@@ -38345,9 +38382,14 @@ var SERVER = "https://trails-back-end.herokuapp.com/";
 function HomeController($state, $http) {
   var vm = this;
   vm.signIn = signIn;
+  vm.gotohelp = gotohelp;
 
   function signIn() {
     $state.go("register");
+  }
+
+  function gotohelp() {
+    $state.go("help");
   }
 };
 
@@ -38363,7 +38405,7 @@ Object.defineProperty(exports, "__esModule", {
 function RegisterController($state, $rootScope, $http) {
   var vm = this;
 
-  var ENDPOINT = "";
+  var ENDPOINT = "https://closecall-api.azurewebsites.net/api/profile";
 
   var SITUATION_MAP = {
     med_sit: "Medical Situation",
@@ -38413,14 +38455,33 @@ function RegisterController($state, $rootScope, $http) {
       phone: vm.phone,
       situations: vm.situations,
       skills: vm.skills,
-      photo: ""
-    };
+      photo: "",
+      allowPush: true,
+      shareLocation: true
 
-    var req = {
+      // user = {
+      //     name:"Barry Howard",
+      //     email:"barry.howard@ge.com",
+      //     phone:"770-519-2683",
+      //     allowPush: true,
+      //     shareLocation: true,
+      //     situations:[
+      //         "Medical Situations",
+      //         "Mechanical Situations"
+      //     ],
+      //     skills:[
+      //         "CPR",
+      //         "Doctor",
+      //         "Combat Medic"
+      //     ]
+      // }
+
+    };var req = {
       url: "" + ENDPOINT,
       data: user,
-      method: 'POST'
-      //headers: 
+      method: 'POST',
+      headers: { 'x-functions-key': "DfhpTaxIpcQI4poARx0YNwEUC7SPcOKzL3TgffTFtnkDfDNPF6/66Q==",
+        'Content-Type': 'application/json' }
     };
     console.log(user);
     $http(req).then(function (resp) {
@@ -38514,6 +38575,10 @@ function routerConfig($stateProvider, $urlRouterProvider) {
     url: '/register',
     templateUrl: 'templates/register.tpl.html',
     controller: 'RegisterController as register'
+  }).state('help', {
+    url: '/help',
+    templateUrl: 'templates/help.tpl.html',
+    controller: 'HelpController as help'
   }
 
   // trails states ------------------------------

@@ -13,6 +13,11 @@ function routerConfig ($stateProvider , $urlRouterProvider) {
       templateUrl: 'templates/register.tpl.html',
       controller: 'RegisterController as register'
     })
+    .state('help', {
+      url: '/help',
+      templateUrl: 'templates/help.tpl.html',
+      controller: 'HelpController as help'
+    })
 
 // trails states ------------------------------
     // .state('root.trails', {
