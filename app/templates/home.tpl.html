@@ -2,15 +2,16 @@
 <!-- <h1 ng-show="root.loggedIn" class="title" id="welcome-back">Welcome back, <span class='static-info' id='user-home-welcome'>{{root.username}}!</span></h1> -->
 
 <div class="home">
-  <div class="closecall-home-banner">
-    <span id="close">close</span>
-    <span id="call">call</span>
+  <div class="home-title">
+      <div class="closecall-home-banner">
+        <span id="close">close</span>
+        <span id="call">call</span>
+      </div>
+      <div class="helping-neighbors-in">
+        HELPING NEIGHBORS IN NEED
+      </div>
   </div>
-  <div class="helping-neighbors-in">
-    HELPING NEIGHBORS IN NEED
-  </div>
-
-  <button ng-click="home.signIn()">
+  <button class="sign-in-button" ng-click="home.signIn()">
     SIGN IN
   </button>
 </div>

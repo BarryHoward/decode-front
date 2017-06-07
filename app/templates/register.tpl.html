@@ -5,9 +5,9 @@
     </div>
     <div class="register-option-list">
       <label>Name</label>
-      <input class="register-text">
+      <input ng-model="register.name" class="register-text">
       <label>Create a Password</label>
-      <input type="password" class="register-text">
+      <input ng-model="register.password" type="password" class="register-text">
     </div>
   </div>
 
@@ -17,9 +17,9 @@
     </div>
     <div class="register-option-list">
       <label>Email</label>
-      <input class="register-text">
+      <input ng-model="register.email" class="register-text">
       <label>Phone</label>
-      <input type="password" class="register-text">
+      <input ng-model="register.phone" class="register-text">
     </div>
   </div>
 
@@ -50,63 +50,111 @@
     </div>
     <div class="register-option-list">
       <div class="checkboxes" class="checkboxes">
-        <input class="checkbox" type="checkbox">
+        <input ng-model="register.med_sit" class="checkbox" type="checkbox" ng-change="register.update_situations()">
         <label>Medical Situations</label>
       </div>
       <div class="checkboxes">
-        <input class="checkbox" type="checkbox">
+        <input ng-model="register.mech_sit" class="checkbox" type="checkbox" ng-change="register.update_situations()">
         <label>Mechanical Situations</label>
       </div>
       <div class="checkboxes">
-        <input class="checkbox" type="checkbox">
+        <input ng-model="register.per_saf" class="checkbox" type="checkbox" ng-change="register.update_situations()">
         <label>Personal Safety</label>
       </div>
     </div>
   </div>
 
   <div class="register-container" ng-show="register.state==4">
-    <div class="register-header">
-      Hello!
+   <div class="register-header">
+      My primary skills
     </div>
     <div class="register-option-list">
-      <label>Name</label>
-      <input class="register-text">
-      <label>Create a Password</label>
-      <input type="password" class="register-text">
+      <div class="checkboxes" class="checkboxes">
+        <input ng-model="register.first_aid" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>First Aid</label>
+      </div>
+      <div class="checkboxes">
+        <input ng-model="register.cpr" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>CPR</label>
+      </div>
+      <div class="checkboxes">
+        <input ng-model="register.doctor" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>Doctor</label>
+      </div>
+      <div class="checkboxes">
+        <input ng-model="register.combat_med" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>Combat Medic</label>
+      </div>
+      <div class="checkboxes">
+        <input ng-model="register.nurse" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>Nurse</label>
+      </div>
+      <div class="checkboxes">
+        <input ng-model="register.emt" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>EMT</label>
+      </div>
+      <div class="checkboxes">
+        <input ng-model="register.therapy" class="checkbox" type="checkbox" ng-change="register.update_skills()">
+        <label>Therapy</label>
+      </div>
     </div>
   </div>
 
   <div class="register-container" ng-show="register.state==5">
     <div class="register-header">
-      Hello!
+      Smile!  Upload a photo
     </div>
     <div class="register-option-list">
-      <label>Name</label>
-      <input class="register-text">
-      <label>Create a Password</label>
-      <input type="password" class="register-text">
     </div>
+
   </div>
 
   <div class="register-container" ng-show="register.state==6">
     <div class="register-header">
-      Hello!
+      {{register.name}}
     </div>
-    <div class="register-option-list">
-      <label>Name</label>
-      <input class="register-text">
-      <label>Create a Password</label>
-      <input type="password" class="register-text">
+    <div class="register-subheader">
+      I CAN HELP WITH
     </div>
+    <div class="register-attribute" ng-repeat="situation in register.situations">
+      {{situation}}
+    </div>
+    <div class="register-subheader">
+      PRIMARY SKILLS
+    </div>
+    <div class="register-attribute" ng-repeat="skill in register.skills">
+      {{skill}}
+    </div>
+    <div class="register-subheader">
+      EMAIL
+    </div>
+    <div class="register-attribute">
+      {{register.email}}
+    </div>
+    <div class="register-subheader">
+      PHONE
+    </div>
+    <div class="register-attribute">
+      {{register.phone}}
+    </div>
+
+
   </div>
 
 
   <div class="bottom-buttons">
-    <button class="prev-button" ng-click="register.previous()" ng-show="register.state>0">
+    <button class="prev-button" ng-click="register.previous()" ng-show="register.state>0 && register.state<6">
       <i class="fa fa-arrow-left" aria-hidden="true"></i>
     </button>
-    <button class="next-button" ng-click="register.next()" ng-show="register.state<register.total_states">
+    <button class="next-button" ng-click="register.next()" ng-show="register.state<6">
       <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+
+    <button class="edit-button" ng-click="register.beginning()" ng-show="register.state == 6">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+    <button class="sign-up-button" ng-click="register.signup()" ng-show="register.state == 6">
+      SIGN UP
     </button>
   </div>
 </div>

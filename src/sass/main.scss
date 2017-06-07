@@ -38,7 +38,51 @@ input{
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: column;
+
+}
+
+.home-title{
+    padding-top: 134px;
+    width: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.closecall-home-banner {
+    color: #7EBBEB;
+    font-family: "Helvetica Neue";
+    font-size: 60px;
+    line-height: 74px;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    #close{
+        margin: auto 0px;
+    }
+    #call{
+        margin: auto 0px;
+        color: white;
+    }
+}
+
+.helping-neighbors-in {
+    height: 23px;
+    color: #7EBBEB;
+    font-family: ".SF NS Text";
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.sign-in-button{
+    margin: 30px;
+    align-self: flex-end;
+    color: white;
+    background: transparent;
+    border: none;
 }
 
 .register{
@@ -63,9 +107,23 @@ input{
 
         .prev-button{
             margin-right: auto;
+            color: #2E78D0;
         }
         .next-button{
             margin-left: auto;
+            color: #2E78D0;
+        }
+
+        .edit-button{
+            margin-right: auto;
+            border-radius: 100%;
+            border: 2px solid #2E78D0;
+            color: #2E78D0;
+        }
+
+        .sign-up-button{
+            margin-left: auto;
+            color: #2E78D0;
         }
     }
 
@@ -77,12 +135,22 @@ input{
     width: 100%;
 
     .register-header {
-        width: 300px;
+        width: 100%;
         color: #0078D7;
         font-family: "Helvetica Neue";
         font-size: 40px;
         line-height: 39px;
         margin-bottom: 30px;
+    }
+
+    .register-subheader{
+        color: #59717F;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .register-attribute{
+        color: #2E78D0;
     }
 
     .register-option-list{
@@ -123,10 +191,9 @@ input{
             flex-direction: row;
 
             .checkbox {
-                height: 20px;
-                width: 20px;
-                border: 2px solid #000000;
+                outline: 2px solid #000000;
                 margin-right: 20px;
+                border: none;
             }
 
         }
@@ -139,44 +206,6 @@ input{
 
 
 
-
-
-
-
-
-
-
-
-.closecall-home-banner {
-    padding-top: 134px;
-    height: 72px;
-    width: 100%;
-    color: #7EBBEB;
-    font-family: "Helvetica Neue";
-    font-size: 60px;
-    line-height: 74px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    #close{
-        margin: auto 0px;
-    }
-    #call{
-        margin: auto 0px;
-        color: white;
-    }
-}
-
-.helping-neighbors-in {
-    height: 23px;
-    color: #7EBBEB;
-    font-family: ".SF NS Text";
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 23px;
-    text-align: center;
-}
 
 
 
