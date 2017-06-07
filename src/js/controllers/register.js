@@ -77,7 +77,7 @@ function RegisterController ($state, $rootScope, $http) {
       url: `${ENDPOINT}`,
       data: user,
       method: 'POST',
-      headers: { 'x-functions-key': "DfhpTaxIpcQI4poARx0YNwEUC7SPcOKzL3TgffTFtnkDfDNPF6/66Q==",
+      headers: { 'x-functions-key': "/QG6X5fBBwBX7rULrHZwTkBi3RahCKhfoqpV5b5dT5VADhfQeYrZnA==",
                   'Content-Type': 'application/json'} 
     }
     console.log(user)

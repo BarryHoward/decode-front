@@ -3,10 +3,11 @@
     <span id="close">close</span>
     <span id="call">call</span>
   </div>
-  <button class="help-button"  ng-click="help.call_help()">
-    <div class="help-button-text">
+  <button class="help-button" ng-click="help.call_help()">
+    <div class="help-button-text" ng-hide="help.show_mic" >
         <div>Press & hold</div>
         <div>for help</div>
     </div>
+    <i class="fa fa-microphone fa-5x" ng-show="help.show_mic" aria-hidden="true"></i>
   </button>
 </div>

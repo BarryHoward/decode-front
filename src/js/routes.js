@@ -18,6 +18,14 @@ function routerConfig ($stateProvider , $urlRouterProvider) {
       templateUrl: 'templates/help.tpl.html',
       controller: 'HelpController as help'
     })
+    .state('onroute', {
+      url: '/onroute',
+      templateUrl: 'templates/onroute.tpl.html',
+      controller: 'OnRouteController as onroute',
+      params: {
+        obj: 5
+      }
+    })
 
 // trails states ------------------------------
     // .state('root.trails', {
