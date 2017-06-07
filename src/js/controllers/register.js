@@ -60,7 +60,7 @@ function RegisterController ($state, $rootScope, $http) {
       method: 'POST',
       //headers: 
     }
-
+    console.log(user)
     $http(req).then(function (resp){
         console.log(resp)
         $state.go("home")
