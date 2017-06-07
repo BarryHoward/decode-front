@@ -1,19 +1,112 @@
-<h1>Register New Cartographer</h1>
+<div class="register">
+  <div class="register-container" ng-show="register.state==0">
+    <div class="register-header">
+      Hello!
+    </div>
+    <div class="register-option-list">
+      <label>Name</label>
+      <input class="register-text">
+      <label>Create a Password</label>
+      <input type="password" class="register-text">
+    </div>
+  </div>
 
-<div class="register-main">
-  <form class="registration" ng-submit="register.create(user)" method="post">
-    <span class="register-labels"><label>Username</label></span>
-    <input class="register-login-input" type="text" name="username"
-      required ng-model="user.username">
-    <br>
-    <span class="register-labels"><label>Password</label></span>
-    <input class="register-login-input" type="password" name="password"
-      required ng-model="user.password">
-    <br>
-    <span class="register-labels"><label>Email Address</label></span>
-    <input class="register-login-input" type="text" name="email"
-      required ng-model="user.email">
-    <br>
-    <button class="register-button" type="submit" name="registerButton">Register</button>
-  </form>
+  <div class="register-container" ng-show="register.state==1">
+    <div class="register-header">
+      Contact Information
+    </div>
+    <div class="register-option-list">
+      <label>Email</label>
+      <input class="register-text">
+      <label>Phone</label>
+      <input type="password" class="register-text">
+    </div>
+  </div>
+
+  <div class="register-container" ng-show="register.state==2">
+    <div class="register-header">
+      Location & notifications
+    </div>
+    <div class="register-option-list">
+      <div class="toggle-group">
+        <label>Share My location</label>
+        <label id="switch">
+          <input type="checkbox" checked>
+          <div class="slider round"></div>
+        </label>
+        <label>Allow Push Notifications</label>
+        <label id="switch">
+          <input type="checkbox" checked>
+          <div class="slider round"></div>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="register-container" ng-show="register.state==3">
+    <div class="register-header">
+      Here's where I can help
+    </div>
+    <div class="register-option-list">
+      <div class="checkboxes" class="checkboxes">
+        <input class="checkbox" type="checkbox">
+        <label>Medical Situations</label>
+      </div>
+      <div class="checkboxes">
+        <input class="checkbox" type="checkbox">
+        <label>Mechanical Situations</label>
+      </div>
+      <div class="checkboxes">
+        <input class="checkbox" type="checkbox">
+        <label>Personal Safety</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="register-container" ng-show="register.state==4">
+    <div class="register-header">
+      Hello!
+    </div>
+    <div class="register-option-list">
+      <label>Name</label>
+      <input class="register-text">
+      <label>Create a Password</label>
+      <input type="password" class="register-text">
+    </div>
+  </div>
+
+  <div class="register-container" ng-show="register.state==5">
+    <div class="register-header">
+      Hello!
+    </div>
+    <div class="register-option-list">
+      <label>Name</label>
+      <input class="register-text">
+      <label>Create a Password</label>
+      <input type="password" class="register-text">
+    </div>
+  </div>
+
+  <div class="register-container" ng-show="register.state==6">
+    <div class="register-header">
+      Hello!
+    </div>
+    <div class="register-option-list">
+      <label>Name</label>
+      <input class="register-text">
+      <label>Create a Password</label>
+      <input type="password" class="register-text">
+    </div>
+  </div>
+
+
+  <div class="bottom-buttons">
+    <button class="prev-button" ng-click="register.previous()" ng-show="register.state>0">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </button>
+    <button class="next-button" ng-click="register.next()" ng-show="register.state<register.total_states">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+  </div>
 </div>

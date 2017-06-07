@@ -1,22 +1,24 @@
-function RegisterController (UsersService, $state, $rootScope) {
+function RegisterController ($state, $rootScope) {
   let vm = this;
 
-  vm.create = create;
+  vm.state = 0;
+  vm.total_states = 7;
+  vm.next = next;
+  vm.previous = previous;
 
-  function create (newUserInfo) {
-    console.log("clicked")
-      UsersService.newUser(newUserInfo).then((creatResp) => {
-        UsersService.login(newUserInfo).then((loginResp) => {
-          UsersService.setUser(loginResp.data)
-          $rootScope.$broadcast('loginChange', {});
-          $state.go('root.home')
-        },(loginErrors) => {
-          console.log(loginErrors)
-        });
-      }, (createErrors) => {
-        console.log(errors)
-      })
+  function next(){
+    if (vm.state < vm.total_states){
+      vm.state = vm.state + 1;
+    }
   }
+
+  function previous(){
+    if (vm.state > 0){
+      vm.state = vm.state - 1;
+    }
+  }
+
+
 }
-RegisterController.$inject = ['UsersService', '$state', '$rootScope'];
+RegisterController.$inject = ['$state', '$rootScope'];
 export {RegisterController}

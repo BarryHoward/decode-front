@@ -3,17 +3,12 @@ function routerConfig ($stateProvider , $urlRouterProvider) {
   $stateProvider
 
  // root states -------------------------------
-    .state('root', {
-      abstract: true,
-      templateUrl: 'templates/root.tpl.html',
-      controller: 'RootController as root'
-    })
-    .state('root.home', {
+    .state('home', {
       url: '/home',
       templateUrl: 'templates/home.tpl.html',
       controller: 'HomeController as home'
     })
-    .state('root.register', {
+    .state('register', {
       url: '/register',
       templateUrl: 'templates/register.tpl.html',
       controller: 'RegisterController as register'

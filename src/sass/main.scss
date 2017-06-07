@@ -1,15 +1,35 @@
+*{
+    
+    box-sizing:  border-box;
+}
+
 html, body{
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-}
-
-.container, .root-container{
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
+}
+
+.container{
+    width: 360px;
+    height: 640px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    border:  2px solid black;
+}
+
+input{
+    padding: 0px 10px;
+}
+
+@font-face {
+  font-family: Helvetica Neue;
+  src: local("HelveticaNeue-CondensedBlack"),
+       url(MgOpenModernaBold.ttf);
 }
 
 .home{
@@ -20,6 +40,112 @@ html, body{
     align-items: center;
     flex-direction: column;
 }
+
+.register{
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+
+    .bottom-buttons{
+        width: 100%;
+        display: flex;
+        background: white;
+
+        button{
+            background: transparent;
+            border: none;
+        }
+
+        .prev-button{
+            margin-right: auto;
+        }
+        .next-button{
+            margin-left: auto;
+        }
+    }
+
+}
+
+.register-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .register-header {
+        width: 300px;
+        color: #0078D7;
+        font-family: "Helvetica Neue";
+        font-size: 40px;
+        line-height: 39px;
+        margin-bottom: 30px;
+    }
+
+    .register-option-list{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+            margin-right: auto;
+            height: 20px;
+            color: #000100;
+            font-family: ".AppleSystemUIFont";
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+        .register-text {
+            box-sizing: border-box;
+            height: 32px;
+            width: 100%;
+            border: 2px solid #7A7A7A;
+            background-color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+
+        .toggle-group{
+            display: flex;
+            flex-direction: column;
+            align-self: flex-start;
+            height: 100%;
+        }
+
+        .checkboxes{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .checkbox {
+                height: 20px;
+                width: 20px;
+                border: 2px solid #000000;
+                margin-right: 20px;
+            }
+
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .closecall-home-banner {
     padding-top: 134px;
@@ -52,3 +178,63 @@ html, body{
     text-align: center;
 }
 
+
+
+//TOGGLE
+
+#switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 22px;
+  margin-bottom: 30px;
+}
+
+#switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
